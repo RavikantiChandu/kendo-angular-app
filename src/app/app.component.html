@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>  
+
+
+  <kendo-custom-grid [gridData]="gridData" [height]="350"  [pageSize]=6 [pageable]=true [skip]="true"  >
+    <kendo-custom-grid-column field="ProductID" title="ID" [width]="10" filter="numeric" >
+    </kendo-custom-grid-column>
+    <kendo-custom-grid-column field="ProductName" title="Name" [width]="25" >
+    </kendo-custom-grid-column>
+    <kendo-custom-grid-column field="Category.CategoryName" title="Category" [width]="20" filter="date"
+    format="{0:d}"> 
+    </kendo-custom-grid-column>
+    <kendo-custom-grid-column field="UnitPrice" title="Price" [width]="10"  filter="numeric"
+    format="{0:c}">
+    </kendo-custom-grid-column>
+    <kendo-custom-grid-column field="UnitsInStock" title="In stock" [width]="20">
+    </kendo-custom-grid-column>
+    <kendo-custom-grid-column field="Discontinued" title="Discontinued"[width]="15" filter="boolean" >
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" [checked]="dataItem.Discontinued" />
+        </ng-template>
+    </kendo-custom-grid-column>
+  </kendo-custom-grid>
